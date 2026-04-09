@@ -3,23 +3,637 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapa Caminhão Pipa D'Água - Solução Rápida para Falta de Água no Rio de Janeiro</title>
+    <title>Lapa Caminhão Pipa D'Água - Abastecimento em Rio de Janeiro e Região</title>
+    <meta name="description" content="Lapa Caminhão Pipa D'Água: Abastecimento rápido e confiável de água potável em Rio de Janeiro e região. Ligue agora e garanta sua água!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis de Cores */
         :root {
-            --bg-color: #08090C;
-            --primary-blue: #1A6FD4;
-            --light-blue: #4D9FFF;
-            --white-text: #F2F4F8;
-            --gray-text: #8892A4;
-            --yellow-accent: #F5C542;
+            --bg-dark: #08090C;
+            --blue-primary: #1A6FD4;
+            --blue-light: #4D9FFF;
+            --white-light: #F2F4F8;
+            --text-color: var(--white-light);
+            --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+            --font-barlow: 'Barlow', sans-serif;
+            --star-yellow: #FFD700;
         }
 
-        /* Reset e Base */
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-barlow);
+            color: var(--text-color);
+            background-color: var(--bg-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-barlow-condensed);
+            color: var(--white-light);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2.2rem; }
+        h4 { font-size: 1.8rem; }
+
+        a {
+            color: var(--blue-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--blue-primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--blue-primary);
+            color: var(--white-light);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-family: var(--font-barlow-condensed);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--blue-light);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--white-light);
+            font-size: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--blue-primary);
+            border-radius: 2px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-dark);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-family: var(--font-barlow-condensed);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white-light);
+            text-transform: uppercase;
+        }
+
+        .navbar-logo span {
+            color: var(--blue-primary);
+        }
+
+        .navbar-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-contact a {
+            color: var(--white-light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-contact a:hover {
+            color: var(--blue-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(8, 9, 12, 0.8), rgba(8, 9, 12, 0.8)), url('https://via.placeholder.com/1920x1080/08090C/4D9FFF?text=Caminhao+Pipa') no-repeat center center/cover;
+            padding: 10rem 0 8rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            min-height: 100vh; /* Adjust for full viewport height */
+            margin-top: -70px; /* Offset for fixed navbar */
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white-light);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--white-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            background-color: var(--bg-dark);
+        }
+
+        .pain-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pain-point-item {
+            background-color: #1a1c20;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .pain-point-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .pain-point-item h3 {
+            color: var(--blue-light);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .pain-point-item p {
+            color: var(--white-light);
+            font-size: 1rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: #121417;
+        }
+
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-item {
+            background-color: #1a1c20;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-item::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 5rem;
+            font-family: var(--font-barlow-condensed);
+            color: rgba(77, 159, 255, 0.1);
+            font-weight: 700;
+            z-index: 0;
+        }
+
+        .step-item h3 {
+            color: var(--blue-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-item p {
+            color: var(--white-light);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--bg-dark);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background-color: #1a1c20;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-card .stars {
+            color: var(--star-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--white-light);
+        }
+
+        .review-card .author {
+            font-weight: 700;
+            color: var(--blue-light);
+            font-size: 1.1rem;
+        }
+
+        /* Bairros Atendidos Section */
+        .bairros-atendidos {
+            background-color: #121417;
+            text-align: center;
+        }
+
+        .bairros-list {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            color: var(--white-light);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0; /* No padding for full-width map */
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg) saturate(0.7) brightness(0.85);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* CTA Final Section */
+        .cta-final {
+            background-color: var(--bg-dark);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .cta-final h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--white-light);
+        }
+
+        .cta-final p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--white-light);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .payment-methods {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: var(--blue-light);
+            font-weight: 500;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366; /* WhatsApp green */
+            color: var(--white-light);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #050608;
+            color: var(--white-light);
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--blue-light);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 2rem; }
+            .section-title { font-size: 2.5rem; }
+            .cta-final h2 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .navbar-contact {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .hero {
+                padding: 8rem 0 6rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .pain-points-grid, .how-it-works-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-final h2 {
+                font-size: 2.5rem;
+            }
+            .cta-final p {
+                font-size: 1.1rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-logo {
+                font-size: 1.5rem;
+            }
+            .navbar-contact a {
+                font-size: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .step-item::before {
+                font-size: 4rem;
+            }
+            .cta-final h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-logo">Lapa Caminhão Pipa <span>D'Água</span></a>
+            <div class="navbar-contact">
+                <a href="tel:+5521973393249">Telefone: +55 21 97339-3249</a>
+                <a href="https://wa.me/5521973393249" target="_blank" rel="noopener noreferrer">WhatsApp: (21) 97339-3249</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>A falta de água não pode parar sua vida ou seu negócio.</h1>
+            <p>Garanta o abastecimento contínuo e de qualidade com a Lapa Caminhão Pipa D'Água em Rio de Janeiro e região. Atendimento rápido e eficiente para todas as suas necessidades.</p>
+            <a href="https://wa.me/5521973393249" target="_blank" rel="noopener noreferrer" class="btn">Solicite seu Orçamento Agora!</a>
+        </div>
+    </header>
+
+    <section id="dores" class="pain-points">
+        <div class="container">
+            <h2 class="section-title">Quem fica sem água sofre com...</h2>
+            <div class="pain-points-grid">
+                <div class="pain-point-item">
+                    <h3>Interrupção de Obras</h3>
+                    <p>Obras paralisadas por falta de água geram atrasos, multas e prejuízos financeiros significativos.</p>
+                </div>
+                <div class="pain-point-item">
+                    <h3>Prejuízos em Empresas</h3>
+                    <p>Fábricas, lava-rápidos e condomínios dependem de água para operar. A falta paralisa tudo.</p>
+                </div>
+                <div class="pain-point-item">
+                    <h3>Desconforto Residencial</h3>
+                    <p>Sem água, higiene pessoal, limpeza da casa e tarefas diárias se tornam impossíveis, gerando estresse.</p>
+                </div>
+                <div class="pain-point-item">
+                    <h3>Impacto Agrícola</h3>
+                    <p>A falta de água para irrigação ou abastecimento animal pode comprometer toda a produção agrícola e pecuária.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como funciona nosso serviço</h2>
+            <div class="how-it-works-grid">
+                <div class="step-item" data-step="1">
+                    <h3>Contato Fácil</h3>
+                    <p>Ligue para nosso telefone ou nos chame diretamente no WhatsApp para um atendimento ágil.</p>
+                </div>
+                <div class="step-item" data-step="2">
+                    <h3>Orçamento Rápido</h3>
+                    <p>Receba uma proposta clara e sem surpresas, personalizada para sua necessidade de volume e local.</p>
+                </div>
+                <div class="step-item" data-step="3">
+                    <h3>Entrega Pontual</h3>
+                    <p>Nossa frota moderna e equipe eficiente garantem a entrega da água no local e horário combinados.</p>
+                </div>
+                <div class="step-item" data-step="4">
+                    <h3>Satisfação Garantida</h3>
+                    <p>Água potável de qualidade certificada, onde você precisa, com a segurança e o profissionalismo que você merece.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Serviço excelente! A Lapa Caminhão Pipa D'Água foi super pontual e a água de ótima qualidade. Recomendo a todos!"</p>
+                    <div class="author">João S. - Condomínio Residencial</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Salvaram minha obra! Precisava de água com urgência e eles atenderam prontamente. Profissionalismo e eficiência nota 10."</p>
+                    <div class="author">Maria P. - Construtora Alpha</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Atendimento impecável e preço justo. Virei cliente fixo para o abastecimento da minha empresa. Confiança total!"</p>
+                    <div class="author">Carlos R. - Indústria Quimíca</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bairros" class="bairros-atendidos">
+        <div class="container">
+            <h2 class="section-title">Atendemos Rio de Janeiro e região</h2>
+            <p class="bairros-list">
+                Nossa área de atuação abrange toda a cidade do Rio de Janeiro e seus bairros adjacentes, garantindo que você nunca fique sem água.
+                Entre em contato para verificar a disponibilidade em sua localidade específica.
+            </p>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-43.2729%2C-22.9568%2C-43.1129%2C-22.8568&layer=mapnik&marker=-22.9068%2C-43.1929" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Não deixe a falta de água prejudicar você!</h2>
+            <p>Conte com a Lapa Caminhão Pipa D'Água para um serviço rápido, seguro e com a qualidade que você merece. Estamos prontos para atender sua demanda.</p>
+            <a href="https://wa.me/5521973393249" target="_blank" rel="noopener noreferrer" class="btn">Fale Conosco Pelo WhatsApp Agora!</a>
+            <p class="payment-methods">Aceitamos PIX, Dinheiro, Cartão de Crédito/Débito e Transferência Bancária.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Lapa Caminhão Pipa D'Água - SP. Todos os direitos reservados.</p>
+            <p>Endereço: Rio de Janeiro</p>
+            <p>Telefone: +55 21 97339-3249</p>
+            <p>Site desenvolvido por <a href="#" target="_blank" rel="noopener noreferrer">APH Digital</a></p>
+        </div>
+    </footer>
+
+    <a
+</body>
+</html>
